@@ -1,0 +1,24 @@
+{
+  "name": "mqtt",
+  "version": "1.0.0",
+  "description": "this is mqtt by Dong",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mqtt"
+  ],
+  "author": "Dong",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "multer": "^1.4.2",
+    "mysql": "^2.18.1",
+    "mqtt": "^4.0.1",
+    "socket.io": "^2.3.0",
+    "ws": "^7.3.0"
+  }
+}

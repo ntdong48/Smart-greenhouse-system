@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Trang Điều Khiển</title>
+  <link rel="shortcut icon" href="#" />
+  <!-- Bootstrap Core CSS -->
+  <link href="base/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="base/css/slider/freshslider.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="base/css/custom.css" rel="stylesheet">
+  <link href="base/css/guages.css" rel="stylesheet">
+
+
+
+  <style type="text/css">
+    #div_g {
+      height: 200px;
+
+    }
+
+    #div_g2 {
+      height: 200px;
+
+    }
+
+    #div_g3 {
+      height: 200px;
+
+    }
+
+    #div_g4 {
+      height: 200px;
+
+    }
+    #div_g5 {
+      height: 200px;
+
+    }
+
+    #anh {
+      height: 1%;
+      width: 1%;
+    }
+
+
+
+    #txt_sensor_humidity {
+      height: 25px;
+      width: 100px;
+    }
+
+
+
+
+    #texts {
+      color: cornsilk;
+    }
+
+    #bg_btn {
+      padding-left: 5px;
+      padding-right: 10px;
+    }
+
+    #nhietdo {
+      margin: 5px 7px 5px;
+    }
+
+    #doam {
+      margin: 5px 12px 5px;
+    }
+
+    #doamdat {
+      margin: 5px -1px 5px;
+    }
+
+    #anhsang {
+      margin: 5px 3px 5px;
+    }
+
+    .slidecontainer {
+      width: 100%;
+    }
+
+    .slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 15px;
+      border-radius: 5px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
+
+    .slider:hover {
+      opacity: 1;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #4CAF50;
+      cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #4CAF50;
+      cursor: pointer;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="wrapper">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand pull-left " href="#" id="menu-toggle"><span
+              class="glyphicon glyphicon-chevron-left soft-white"></span></a>
+          <a class="navbar-brand pull-left" id='space' href="/">Trang chủ</a>
+        </div>
+        <div class="navbar-header" col>
+
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-left">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+                aria-expanded="false">Thống kê <span
+                  class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li role="separator" class="divider"></li>
+                <li><a href="statisticsByDay.html" target="_blank">Theo ngày</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="statisticsByMonth.html" target="_blank">Theo tháng</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="statisticsByYear.html" target="_blank">Theo năm</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+    </nav>
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+      <div class="user-panel">
+        <div class="image pull-left">
+          <a href=""><img src="base/img/A.jpg" class="img-circle" alt="User Image"></a>
+        </div>
+        <div class="slogan pull-right">
+          <h3 class="pull-left">Hệ thống</h3>
+          <br>
+          <h5 class="pull-left">Giám sát và điều khiển</h5>
+        </div>
+      </div>
+
+      <ul class="sidebar-nav">
+        <hr>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <h4 id="texts" >Kết nói MQTT Broker</h4>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="row">
+            <div class="col-xs-4">
+              <h4 id="texts">Broker:</h4>
+            </div>
+            <div class="col-xs-7">
+              <input type="text" class="form-control" id="txt_MQTT_Broker_URL" placeholder="Nhập MQTT Broker">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="row">
+            <div class="col-xs-4">
+              <h4 id="texts">Port:</h4>
+            </div>
+            <div class="col-xs-7">
+              <input type="text" class="form-control" id="txt_port" placeholder="Nhập Port MQTT Borker">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="row">
+            <div class="col-xs-4">
+              <h4 id="texts">Client:</h4>
+            </div>
+            <div class="col-xs-7">
+              <input type="text" class="form-control" id="txt_MQTT_Client_ID">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="col-sm-12">
+            <button type="button" class="btn btn-success col-sm-12" id="btn_Connect_to_Broker"
+              onclick="mqtt_Connect_with_Broker();">Connect</button>
+          </div>
+        </div>
+
+        <div class="col-sm-12">
+          <hr>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <h4 id="texts">Đăng Ký và Gửi MQTT</h4>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="row">
+            <div class="col-xs-5">
+              <h4 id="texts">Subscribe:</h4>
+            </div>
+            <div class="col-xs-6">
+              <input type="text" class="form-control" id="txt_MQTT_Subscribe_Topic"
+                placeholder="Đăng ký MQTT Broker">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="col-sm-12">
+            <button type="button" class="btn btn-primary col-sm-12"
+              onclick="mqtt_Subscribe_to_Topic();">Subscribe</button>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="row">
+            <div class="col-xs-4">
+              <h4 id="texts">Topic:</h4>
+            </div>
+            <div class="col-xs-7">
+              <input type="text" class="form-control" id="txt_MQTT_Publish_Topic" placeholder="Nhập Topic">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="row">
+            <div class="col-xs-4">
+              <h4 id="texts">Message:</h4>
+            </div>
+            <div class="col-xs-7">
+              <input type="text" class="form-control" id="txt_MQTT_Msg" placeholder="Nội dung muốn gửi">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="col-sm-12">
+            <button type="button" class="btn btn-primary col-sm-12" onclick="mqtt_Publish_Message();">Publish</button>
+          </div>
+        </div>
+      </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <section class="content-header">
+              <h3>
+                Trang giám sát và điều khiển
+
+              </h3>
+            </section>
+
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-md-4 col-sm-12 col-xs-12">
+            <!-- Table -->
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td colspan="4" class="vert-align td-center">
+                    <small>Cập nhật và chế độ</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2"class="td-center">
+                    <button id='btnMode' class="btn btn-sm btn-danger btn-block">Thủ Công</button> </td>
+                  <td colspan="2"class="vert-align td-center">Chế độ</td>
+                </tr>
+                <tr>
+                  <td colspan="" class="td-center">
+                    <input type="text" class="form-control" id="txt_timer">
+                  </td>
+                  <td>
+                    <button id="nbTimer" type="button" class="btn btn-outline-secondary">25</button>
+                  </td>
+                  <td class="vert-align td-center">
+                    <button type="button" class="btn btn-success" id="btn_Sent_timer"
+                      onclick="Send_timer();">Gửi</button>
+                  </td>
+                  <td class="vert-align td-center">Thời gian</td>
+                </tr>
+                <div class="form">
+                  <form action="#" enctype="multipart/form-data" method="POST">
+                    <tr>
+                      <td colspan="4" class="td-left">
+                        <label><input style="width: 100%" type="file" id="file" name="file"  /></label>
+                      </td>
+                      <!-- <td colspan="2" class="vert-align td-center">
+                        <select name="uploadf" id="uploadf">
+                          <option value="upload1">Folder 1</option>
+                          <option value="upload2">Folder 2</option>
+                        </select>
+                      </td> -->
+                    </tr>
+                    <tr>
+                      <td colspan="4">
+                        <input style="width: 50%" type="submit" name="Upload" value="Tải Lên" class="btn btn-success" />
+                      </td>
+                    </tr>
+                  </form>
+                </div>
+
+              </tbody>
+            </table>
+          </div><!-- /.col -->
+          <div class="col-md-4 col-sm-12 col-xs-12">
+            <!-- Table -->
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td colspan="4" class="vert-align td-center">
+                    <small>Điều khiển</small>
+                  </td>
+                </tr>
+                <tr>
+
+                  <td class="td-center" style="height:0.5px;">
+                    <div class="slidecontainer">
+                      <input type="range" min="0" max="100" value="0" class="slider" id="myRange">
+                    </div>
+                    <div><span id="demo"></span></div>
+                  </td>
+
+                  <td class="vert-align td-center">Mái che</td>
+                </tr>
+                <tr>
+                  <td class="td-center">
+                    <button id='btnLamp' class="btn btn-sm btn-danger btn-block">Đèn Tắt</button>
+                  </td>
+                  <td class="vert-align td-center">Đèn</td>
+                </tr>
+                <tr>
+                  <td class="td-center">
+                    <button id='btnFan' class="btn btn-sm btn-danger btn-block">Quạt Tắt</button>
+                  </td>
+                  <td class="vert-align td-center">Máy quạt</td>
+                </tr>
+                <tr>
+                  <td class="td-center">
+                    <button id='btnPump' class="btn btn-sm btn-danger btn-block">Bơm Tắt</button> </td>
+                  <td class="vert-align td-center">Máy bơm</td>
+                </tr>
+              </tbody>
+            </table>
+          </div><!-- /.col -->
+          <div class="col-md-4 col-sm-12 col-xs-12">
+            <!-- Table -->
+            <table class="table –responsive">
+              <tbody>
+                <tr>
+                  <td colspan="4" class="vert-align td-center">
+                    <small>Thiết lập</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vert-align td-center" style="width: 30%">Nhiệt Độ</td>
+                  <td class="td-center">
+                    <input type="text" class="form-control" id="txt_sensor_temperature">
+                  </td>
+                  <td class="vert-align td-center">
+                    <button type="button" class="btn btn-success" id="btn_Sent_temperature"
+                      onclick="Send_temperature();">Gửi</button>
+                  </td>
+                  <td>
+                    <button id="nbTemp" type="button" class="btn btn-outline-secondary">25</button>
+                    <!-- <span id="nbTemp"></span> -->
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vert-align td-center">Độ Ẩm Đất</td>
+                  <td class="td-center">
+                    <input type="text" class="form-control" id="txt_sensor_soilmoisture">
+                  </td>
+                  <td class="vert-align td-center">
+                    <button type="button" class="btn btn-success" id="btn_Sent_soilmoisture"
+                      onclick="Send_soilmoisture();">Gửi</button>
+                  </td>
+                  <td>
+                    <button id="nbSoi" type="button" class="btn btn-outline-secondary">25</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vert-align td-center">Ánh Sáng</td>
+                  <td class="td-center">
+                    <input type="text" class="form-control" id="txt_sensor_light">
+                  </td>
+                  <td class="vert-align td-center">
+                    <button type="button" class="btn btn-success" id="btn_Sent_light"
+                      onclick="Send_light();">Gửi</button>
+                  </td>
+                  <td>
+                    <button id="nbLight" type="button" class="btn btn-outline-secondary">25</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vert-align td-center">Mưa</td>
+                  <td class="td-center">
+                    <input type="text" class="form-control" id="txt_sensor_rain">
+                  </td>
+                  <td class="vert-align td-center">
+                    <button type="button" class="btn btn-success" id="btn_Sent_rain"
+                      onclick="Send_rain();">Gửi</button>
+                  </td>
+                  <td>
+                    <button id="nbRain" type="button" class="btn btn-outline-secondary">25</button>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+
+
+
+
+        <div class="row">
+          <hr class="style-four">
+          <div class="row">
+            <div class="col-lg-6 col-md-12">
+              <div class="row">
+                <div class="col-md-6 col-md-6 col-sm-6">
+                  <div id="g1" class="gauge float-right"></div>
+                </div>
+                <!--Gauge temp -->
+                <div class="col-md-6 col-md-6 col-sm-6">
+                  <h4 id="day">Ngày hiện tại<small class="pull-right"> Thống Kê</small></h4>
+                  <table class="table table-condensed">
+                    <tbody>
+                      <tr>
+                        <td>Lớn nhất</td>
+                        <td id="showMaxTemp"></td>
+                        <td id="showMaxTimeTemp"></td>
+                      </tr>
+                      <tr>
+                        <td>Nhỏ nhất</td>
+                        <td id="showMinTemp"></td>
+                        <td id="showMinTimeTemp"></td>
+                      </tr>
+                      <tr>
+                        <td>Trung bình</td>
+                        <td id="showAvgTemp"></td>
+                        <td>Hôm nay</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- Biểu đồ chart-->
+            <div class="col-lg-6 col-md-12 col-sm-12">
+              <div class="row">
+                <div id="div_g"></div>
+              </div>
+            </div>
+          </div>
+          <hr class="style-four">
+
+
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-6 col-md-12">
+                <div class="row">
+                  <div class="col-md-6 col-md-6 col-sm-6">
+                    <div id="g2" class="gauge float-right"></div>
+                  </div>
+                  <!--Gauge temp -->
+                  <div class="col-md-6 col-md-6 col-sm-6">
+                    <h4 id="day2">Ngày hiện tại<small class="pull-right"> Thống Kê</small></h4>
+                    <table class="table table-condensed">
+                      <tbody>
+                        <tr>
+                          <td>Lớn nhất</td>
+                          <td id="showMaxHum"></td>
+                          <td id="showMaxTimeHum"></td>
+                        </tr>
+                        <tr>
+                          <td>Nhỏ nhất</td>
+                          <td id="showMinHum"></td>
+                          <td id="showMinTimeHum"></td>
+                        </tr>
+                        <tr>
+                          <td>Trung bình</td>
+                          <td id="showAvgHum"></td>
+                          <td>Hôm nay</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Biểu đồ chart-->
+              <div class="col-lg-6">
+                <div class="row">
+                  <div id="div_g2"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <hr class="style-four">
+
+
+
+
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-6 col-md-12">
+                <div class="row">
+                  <div class="col-md-6 col-md-6 col-sm-6">
+                    <div id="g3" class="gauge float-right"></div>
+                  </div>
+                  <!--Gauge temp -->
+                  <div class="col-md-6 col-md-6 col-sm-6">
+                    <h4 id="day3">Ngày hiện tại<small class="pull-right"> Thống Kê</small></h4>
+                    <table class="table table-condensed">
+                      <tbody>
+                        <tr>
+                          <td>Lớn nhất</td>
+                          <td id="showMaxSoi"></td>
+                          <td id="showMaxTimeSoi"></td>
+                        </tr>
+                        <tr>
+                          <td>Nhỏ nhất</td>
+                          <td id="showMinSoi"></td>
+                          <td id="showMinTimeSoi"></td>
+                        </tr>
+                        <tr>
+                          <td>Trung bình</td>
+                          <td id="showAvgSoi"></td>
+                          <td>Hôm nay</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Biểu đồ chart-->
+              <div class="col-lg-6">
+                <div class="row">
+                  <div id="div_g3"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <hr class="style-four">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-6 col-md-12">
+                <div class="row">
+                  <div class="col-md-6 col-md-6 col-sm-6">
+                    <div id="g4" class="gauge float-right"></div>
+                  </div>
+                  <!--Gauge temp -->
+                  <div class="col-md-6 col-md-6 col-sm-6">
+                    <h4 id="day4">Ngày hiện tại<small class="pull-right"> Thống Kê</small></h4>
+                    <table class="table table-condensed">
+                      <tbody>
+                        <tr>
+                          <td>Lớn nhất</td>
+                          <td id="showMaxLight"></td>
+                          <td id="showMaxTimeLight"></td>
+                        </tr>
+                        <tr>
+                          <td>Nhỏ nhất</td>
+                          <td id="showMinLight"></td>
+                          <td id="showMinTimeLight"></td>
+                        </tr>
+                        <tr>
+                          <td>Trung bình</td>
+                          <td id="showAvgLight"></td>
+                          <td>Hôm nay</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Biểu đồ chart-->
+              <div class="col-lg-6">
+                <div class="row">
+                  <div id="div_g4"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+          <hr class="style-four">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-6 col-md-12">
+                <div class="row">
+                  <div class="col-md-6 col-md-6 col-sm-6">
+                    <div id="g5" class="gauge float-right"></div>
+                  </div>
+                  <!--Gauge temp -->
+                  <div class="col-md-6 col-md-6 col-sm-6">
+                    <h4 id="day5">Ngày hiện tại<small class="pull-right"> Thống Kê</small></h4>
+                    <table class="table table-condensed">
+                      <tbody>
+                        <tr>
+                          <td>Lớn nhất</td>
+                          <td id="showMaxRain"></td>
+                          <td id="showMaxTimeRain"></td>
+                        </tr>
+                        <tr>
+                          <td>Nhỏ nhất</td>
+                          <td id="showMinRain"></td>
+                          <td id="showMinTimeRain"></td>
+                        </tr>
+                        <tr>
+                          <td>Trung bình</td>
+                          <td id="showAvgRain"></td>
+                          <td>Hôm nay</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Biểu đồ chart-->
+              <div class="col-lg-6">
+                <div class="row">
+                  <div id="div_g5"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+          
+          <hr class="style-four">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="txtAr_Console">Console:</label>
+              <div class="col-sm-9">
+                <textarea ype="textarea" class="form-control" rows="12" cols="100" id="txtAr_Console"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="btn_Clear_Console"></label>
+              <div class="col-sm-4">
+                <button type="button" id="btn_Clear_Console" class="btn btn-warning col-sm-4"
+                  onclick="clear_Console();">Clear Console</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- /#page-content-wrapper -->
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <!--Chart-->
+    <script src="base/js/chart/dygraph-combined-dev.js"></script>
+    <!--libMQtt-->
+    <script src="base/js/mqtt/mqttws31.js" type="text/javascript"></script>
+
+    <!-- GUAGE SECTION -->
+    <script src="base/js/guage/raphael-2.1.4.min.js"></script>
+    <script src="base/js/guage/justgage-1.1.0.min.js"></script>
+
+    <!-- freshslider -->
+    <script src="base/js/slider/freshslider.min.js"></script>
+    <!--MQTTf-->
+    <script src="base/js/mqttf/mqtt.js" type="text/javascript"> </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+
+    <script>
+      $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+      });
+    </script>
+
+<script src="base/js/custom/custom.js" type="text/javascript"> </script>
+
+</body>
+
+</html>
